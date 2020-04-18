@@ -1,0 +1,68 @@
+/*
+/*
+ * Copyright Takunda Ashleigh Zuweni and Epic Zimbabwe 2015-PRESENT
+ */
+/* 
+    Created on : 21 Nov 2015, 1:05:08 PM
+    Author     : T. Ashleigh Zuweni
+*/
+body {
+    background: rgb(244, 244, 244);
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    overflow-x: hidden; 
+    color: #0b3f5e;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+#start {
+  height: 500px;
+ }
+
+ @media screen and (max-width: 610px) {
+  #start {
+  height: 400px;
+ }
+ }
+  
+  h4 {
+      font-weight: 300;
+      font-family: Century Gothic;
+      color: #0b3f5e;
+      padding: 20px;
+  }  
+  
+  #our-services img {
+     width: 49.5%;
+     padding: 0px;
+     margin: 0px;
+     display: inline-block;
+     border-radius: 4px;
+  } 
+  
+  @media (max-width: 500px) {
+      #our-services img {
+          width: 100%;
+      }
+}
+
+.link {
+    color: #0b3f5e;
+}
+
+.link:hover {
+    color: gray;
+}
+
+.top {
+    border: 2px solid #0b3f5e;
+}
+
+.top:hover {
+    color: grey;
+    border-color: gray;
+}
