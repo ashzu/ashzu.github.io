@@ -1,98 +1,98 @@
-/*Copyright Takunda Ashleigh Zuweni*/
-body {
-background: black;
-overflow: hidden;
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(material-icons/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: local('Material Icons'),
+      local('MaterialIcons-Regular'),
+      url(material-icons/MaterialIcons-Regular.woff2) format('woff2'),
+      url(material-icons/MaterialIcons-Regular.woff) format('woff'),
+      url(material-icons/MaterialIcons-Regular.ttf) format('truetype');
+  }
+  
+  .material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+  
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+  }
+
+html, body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
 }
 
-.start-div h3 {
-	font-family: Corbel;
-	font-weight: 300;
-	letter-spacing: 0.2em;
+.fullscreen {
+    height: 100%; 
+    width: 100%; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    z-index: 1000; 
+    background: #fff;
+  }
+
+#camera, #camera--view, #camera--sensor, #camera--output{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
-.start.div {
-	width: 50%;
-	margin-top: 300px;
+#camera--view, #camera--sensor, #camera--output{
+    transform: scaleX(-1);
+    filter: FlipH;
 }
 
-.game {
-	display: none;
+#camera--trigger{
+    /*width: 200px;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    border-radius: 30px;
+    border: none;
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);*/
+    position: fixed;
+    bottom: 30px;
+    left: calc(50% - 0px);
 }
 
-.end-div {
-	display: none;
+.taken{
+    height: 200px!important;
+    width: 200px!important;
+    transition: all 0.5s ease-in;
+    border: solid 3px white;
+    border-radius: 20px;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
+    top: 20px;
+    left: calc(50% - 100px);
+    z-index: 2;
 }
 
-.progress-bar {
-border: 1px solid red;
-width: 300px;
-position: fixed;
-top: 30px ; right: 30px;
-z-index: 10;
--webkit-border-radius: 30px;
--moz-border-radius: 30px;
--ms-border-radius: 30px;
--o-border-radius: 30px;
-}
-
-.progress-bar > div {
-height: 20px ;
-background: red;
-width: 0%;
--webkit-border-radius: 30px;
--moz-border-radius: 30px;
--ms-border-radius: 30px;
--o-border-radius: 30px;
-}
-
-.baddies-progress {
-	position: fixed;
-	font-size: 14px;
-	font-weight: 600px;
-	text-transform: uppercase;
-	letter-spacing: 0.12em;
-	top: -3px;
-	right: 50px;
-	z-index: 10;
-	width: 300px;
-	text-align: center;
-}
-
-.time-progress-bar {
-border: 1px solid green;
-width: 300px;
-position: fixed;
-top: 30px ; left: 30px;
-z-index: 10;
--webkit-border-radius: 30px;
--moz-border-radius: 30px;
--ms-border-radius: 30px;
--o-border-radius: 30px;
-}
-
-.time-progress-bar > div {
-height: 20px ;
-background: green;
-width: 0%;
--webkit-border-radius: 30px;
--moz-border-radius: 30px;
--ms-border-radius: 30px;
--o-border-radius: 30px;
-}
-
-.time-progress {
-	position: fixed;
-	font-size: 14px;
-	font-weight: 600px;
-	text-transform: uppercase;
-	letter-spacing: 0.12em;
-	top: -3px;
-	left: 50px;
-	z-index: 10;
-	width: 300px;
-	text-align: center;
-}
-
-a {
-	font-weight: 900;
+.card {
+    border-radius: 20px;
 }

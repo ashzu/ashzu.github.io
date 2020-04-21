@@ -1,59 +1,93 @@
-<!--Copyright Takunda Ashleigh Zuweni-->
-<html>
-<head>
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-     <title>Kill the Badies</title>
-     <link rel="icon" href="images/favicon.png">
-     <link rel="stylesheet" type="text/css" href="css/materialize.css">
-     <link href="css/style.css" type="text/css" rel="stylesheet" />
-</head>
-<body>
-<!--<audio src="audio.mp3" style="position: absolute; left:-500px" autoplay loop></audio>-->
-<div class="start-div black">
-	<div class="row container valign" style="margin-top: 100px">
-	<h3 class="white-text center"><img src="images/baddy.png"><br>Kill the Badies<br><small style="font-size: 12px; font-family: Century Gothic">Game by Ashleigh Zuweni</small></h3>
-	<p class="right"><a href="#!" class="start-btn btn waves-effect waves-purple black red-text">PLAY</a></p>
-	<p class="left"><a href="#help-modal" class="modal-trigger btn waves-effect waves-purple black red-text">HELP</a></p>
-	 <!--Win Modal Structure--> 
-  <div id="help-modal" class="modal modal-fixed-footer red darken-4 white-text" style="height: 150px; text-align: center">
-    <div class="modal-content" style="height: 150px">
-    	
-      <h5 class="center">Click/touch the Bady to kill it before time runs out!</h5>
-        
-    </div>
-  </div><!--End of help modal-->
-    </div>
-    </div>
-</div>
+<html lang=”en”>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="application-name" content="Camera app">
+		<meta name="apple-mobile-web-app-title" content="Camera app">
+		<!-- Name of the app -->
+		<title>What Breed</title>
+        <!-- Link to site manifest -->
+		<link rel="manifest" href="site.webmanifest">
+		<!-- Links to icons -->
+		<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+		<link rel="manifest" href="site.webmanifest">
+		<link rel="mask-icon" href="safari-pinned-tab.svg" color="#603cba">
+		<meta name="msapplication-TileColor" content="#603cba">
+		<meta name="theme-color" content="#ffffff">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+		<!-- Link to main style sheet -->
+		<link rel="stylesheet" href="css/style.css"> 
+	</head>
+	<body>
 
-<div class="game">
-	<p class="white-text time-progress">Time <i class="mdi-action-alarm white-text"></i></p>  
-	<div class="time-progress-bar"><div></div></div>
-    <p class="white-text baddies-progress">Badies Killed</p>  
-	<div class="progress-bar"><div></div></div>
+		<!-- Camera -->
+		<main id="camera">
 
-	<div class="row container game-matrix">
-		<p style="text-align: center; margin-top: 150px"><img src="images/baddy.png " style="position: relative; top: 300px" height="80" class="baddy b1"></p>
-			<p class="right"><img src="images/baddy.png " style="position: relative; top: 100px" height="80" class="baddy b2"></p>
-			<p class="left"><img src="images/baddy.png " style="position: relative; left: 400px" height="80" class="baddy b3"></p>
-			<p class="center"><img src="images/baddy.png " style="position: relative; left: 20px" height="80" class="baddy b4"></p>
-			<p class="left"><img src="images/baddy.png " style="position: relative; left: 20px" height="80" class="baddy b5"></p>
-			<p class="right"><img src="images/baddy.png " style="position: relative; left: 20px" height="80" class="baddy b6"></p>
-			<p class="center"><img src="images/baddy.png " style="position: relative; left: 20px" height="80" class="baddy b7"></p>
-			<p class="right"><img src="images/baddy.png " style="position: relative; left: 20px" height="80" class="baddy b8"></p>
-			<p class="left"><img src="images/baddy.png " style="position: relative; left: 20px" height="80" class="baddy b9"></p>
-			<p class="center"><img src="images/baddy.png " style="position: relative; left: 20px" height="80" class="baddy b10"></p>
+		    <!-- Camera sensor -->
+		    <canvas id="camera--sensor"></canvas>
+		    
+		    <!-- Camera view -->
+		    <video id="camera--view" autoplay playsinline></video>
+		    
+			
+		    
 
-	</div>
-</div>
+			<!-- Camera trigger -->
+			<a href="#" class="btn-floating btn-large waves-effect waves-light white grey-text text-darken-3"  id="camera--trigger"><i class="material-icons grey-text text-darken-3">camera</i></a>
+			
+			<!-- Camera output -->
+		<div id="full-view" class="valign-wrapper fullscreen hide">
+			<img src="//:0" alt="" id="camera--output">
+			<div class="container">
 
-<div class="end-div" style="margin-top: 200px">
-<h5></h5>
-</div>
+					<div class="center-align col s9 offset-s2 m6 offset-m3">
+						<div class="card">
+						  <div class="card-content">
+							<span class="card-title">What Breed?</span>
+							<p id="message"></p>
+							<table id="result-table" class="hide">
+								<thead>
+								  <tr>
+									  <th>Prediction</th>
+									  <th>Probability</th>
+								  </tr>
+								</thead>
+						
+								<tbody id="result">
+								</tbody>
+							  </table>
+						  </div>
+						  <div class="card-action">
+							<a href="#" id="another-pic">Take another Picture</a>
+							<input type="file"  accept="image/*" name="image" id="file" style="display: none;">
+							<label for="file" style="cursor: pointer;">Upload Image</label>
+						  </div>
+						</div>
+					  </div>
 
-<script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>
-<script src="js/jquery-ui.js" type="text/javascript"></script>
-<script src="js/materialize.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="js/script.js"></script>
-</body>
+				  </div>
+			</div>
+		</div>
+
+		</main>
+
+		
+		<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+		<!--Import JQuery-->
+		<script type="text/javascript" src="js/jquery-3.5.0.min.js"></script>
+		 <!--Import Materializejs-->
+		 <script type="text/javascript" src="js/materialize.min.js"></script>
+		<!-- Reference to your JavaScript file -->
+		<script src="js/app.js"></script>
+		<!-- Reference to adapter.js -->
+		<script src="js/adapter-min.js"></script>
+
+	</body>
 </html>
