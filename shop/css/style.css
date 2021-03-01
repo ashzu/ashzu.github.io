@@ -1,0 +1,14 @@
+body {
+	  /*background-image: url("img/background.jpg");
+        background-repeat: repeat;*/
+	    display: flex;
+	    min-height: 100vh;
+	    flex-direction: column;
+	  }
+
+	  main {
+	    flex: 1 0 auto;
+	  }
+	  
+	  @import url(//db.onlinewebfonts.com/c/8c583b80ac9e392caea26d76a803b665?family=ITC+Bradley+Hand);
+	  @font-face {font-family: "ITC Bradley Hand"; src: url("//db.onlinewebfonts.com/t/8c583b80ac9e392caea26d76a803b665.eot"); src: url("//db.onlinewebfonts.com/t/8c583b80ac9e392caea26d76a803b665.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/8c583b80ac9e392caea26d76a803b665.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/8c583b80ac9e392caea26d76a803b665.woff") format("woff"), url("//db.onlinewebfonts.com/t/8c583b80ac9e392caea26d76a803b665.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/8c583b80ac9e392caea26d76a803b665.svg#ITC Bradley Hand") format("svg"); }
